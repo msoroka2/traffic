@@ -1,4 +1,4 @@
-package Model;
+package Dynamic;
 
 public class Car {
     private double currentSpeed;
