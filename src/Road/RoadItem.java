@@ -1,7 +1,5 @@
 package Road;
 
-import Model.Road;
-
 public class RoadItem {
     RoadItem nextItem;
     RoadItem previousItem;

@@ -11,8 +11,4 @@ public class Intersection extends Static{
         turns.add(turn);
     }
 
-//    List<Turn> getTurns() {}
-
-//    Turn getTurn(int index) {}
-
 }

@@ -2,7 +2,7 @@ package Dynamic;
 import Dynamic.Dynamic;
 import Model.Color;
 
-public class Vehicle extends Dynamic{
+public abstract class Vehicle extends Dynamic{
 
     double currentSpeed;
     double desiredSpeed;
@@ -14,16 +14,27 @@ public class Vehicle extends Dynamic{
 
     }
 
+    protected abstract void accelerate(int secondsDelta);
+    protected abstract void decelerate(int secondsDelta);
+
     public double getCurrentSpeed() {
         return currentSpeed;
     }
 
-    public void setCurrentSpeed(double currentSpeed) {
-        this.currentSpeed = currentSpeed;
+    public void setDesiredSpeed(double mph) {
+        desiredSpeed = mph;
     }
 
-    public void setDesiredSpeed(double desiredSpeed) {
-        this.desiredSpeed = desiredSpeed;
+    protected void setCurrentSpeed(double speed) {
+        if (currentSpeed <= speed) {
+            currentSpeed = Math.min(speed, desiredSpeed);
+        } else {
+            currentSpeed = Math.max(speed, desiredSpeed);
+        }
+    }
+
+    public void updateSpeed(int seconds) {
+        if (currentSpeed > desiredSpeed) decelerate(seconds);
+        else if (currentSpeed < desiredSpeed) accelerate(seconds);
     }
 }
-

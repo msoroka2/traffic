@@ -1,15 +1,9 @@
 package Dynamic;
-
-public class Car {
+import Constants.Constants;
+public class Car extends Vehicle{
     private double currentSpeed;
     private String currentDirection;
     private String currentLocation;
-
-    public Car(double currentSpeed, String currentDirection, String currentLocation) {
-        this.currentSpeed = currentSpeed;
-        this.currentDirection = currentDirection;
-        this.currentLocation = currentLocation;
-    }
 
     public void accelerate(double toSpeed) {}
 
@@ -17,4 +11,12 @@ public class Car {
 
     public void turn(String direction, double degrees) {}
 
+    @Override
+    protected void accelerate(int secondsDelta) {
+        setCurrentSpeed(getCurrentSpeed() + Constants.AccRate * secondsDelta * Constants.MpsToMph);
+    }
+    @Override
+    protected void decelerate(int secondsDelta) {
+        setCurrentSpeed(getCurrentSpeed() - Constants.DecRate * secondsDelta * Constants.MpsToMph);
+    }
 }
