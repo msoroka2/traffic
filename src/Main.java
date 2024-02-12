@@ -29,7 +29,7 @@ public class Main {
 //            }
 //        }
 
-        ISimOutput simOutput = new ImperialOutput();
+        ISimOutput simOutput = new MetricOutput();
 
         Vehicle v = new Vehicle();
         v.setCurrentSpeed(60);
