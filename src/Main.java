@@ -1,6 +1,9 @@
 import Dynamic.Car;
 import Dynamic.Truck;
 import Dynamic.Vehicle;
+import Simulation.ISimOutput;
+import Simulation.ImperialOutput;
+import Simulation.MetricOutput;
 
 import java.util.ArrayList;
 
@@ -19,11 +22,18 @@ public class Main {
         vehicles.add(truck1);
         vehicles.add(truck2);
 
-        for (int i = 0; i < 11; i++) {
-            for (Vehicle v : vehicles) {
-                v.updateSpeed(1);
-                System.out.println(v.getClass().getSimpleName() + " speed: " + String.format("%.1f mph", v.getCurrentSpeed()));
-            }
-        }
+//        for (int i = 0; i < 11; i++) {
+//            for (Vehicle v : vehicles) {
+//                v.updateSpeed(1);
+//                System.out.println(v.getClass().getSimpleName() + " speed: " + String.format("%.1f mph", v.getCurrentSpeed()));
+//            }
+//        }
+
+        ISimOutput simOutput = new MetricOutput(); // Change based on instruction
+
+        Vehicle v = new Vehicle();
+        v.setCurrentSpeed(60); // Set current speed for demonstration
+
+        System.out.printf("%s speed: %.2f%n", "Car", simOutput.getSpeed(v));
     }
     }

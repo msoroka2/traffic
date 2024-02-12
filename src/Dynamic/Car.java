@@ -11,12 +11,12 @@ public class Car extends Vehicle{
 
     public void turn(String direction, double degrees) {}
 
-    @Override
-    protected void accelerate(int secondsDelta) {
-        setCurrentSpeed(getCurrentSpeed() + Constants.AccRate * secondsDelta * Constants.MpsToMph);
-    }
-    @Override
-    protected void decelerate(int secondsDelta) {
-        setCurrentSpeed(getCurrentSpeed() - Constants.DecRate * secondsDelta * Constants.MpsToMph);
-    }
+//    @Override
+//    protected void accelerate(int secondsDelta) {
+//        setCurrentSpeed(getCurrentSpeed() + Constants.AccRate * secondsDelta * Constants.MpsToMph);
+//    }
+//    @Override
+//    protected void decelerate(int secondsDelta) {
+//        setCurrentSpeed(getCurrentSpeed() - Constants.DecRate * secondsDelta * Constants.MpsToMph);
+//    }
 }
