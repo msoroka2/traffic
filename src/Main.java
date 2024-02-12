@@ -29,10 +29,10 @@ public class Main {
 //            }
 //        }
 
-        ISimOutput simOutput = new MetricOutput(); // Change based on instruction
+        ISimOutput simOutput = new MetricOutput();
 
         Vehicle v = new Vehicle();
-        v.setCurrentSpeed(60); // Set current speed for demonstration
+        v.setCurrentSpeed(60);
 
         System.out.printf("%s speed: %.2f%n", "Car", simOutput.getSpeed(v));
     }
