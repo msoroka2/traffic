@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class Main {
 
+    public static final double MPS_TO_KPH = 3.6;
     public static void main(String[] args) {
 //        System.out.println("Hello world!");
         Car car = new Car();
