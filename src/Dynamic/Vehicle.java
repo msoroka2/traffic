@@ -1,36 +1,33 @@
 package Dynamic;
+
 import Dynamic.Dynamic;
 import Model.Color;
 
-public class Vehicle extends Dynamic{
+public class Vehicle {
+    private double currentSpeed;
+    private double desiredSpeed;
+    private double speedLimit;
+    private Color color;
 
-    double currentSpeed;
-    double desiredSpeed;
-    double speedLimit;
-    Color color;
-
-    @Override
-    protected void upDate(int second) {
-
+    public void updateSpeed(double acceleration) {
+        if (currentSpeed < desiredSpeed) {
+            currentSpeed += acceleration;
+            if (currentSpeed > desiredSpeed) {
+                currentSpeed = desiredSpeed;
+            }
+        } else if (currentSpeed > desiredSpeed) {
+            currentSpeed -= acceleration;
+            if (currentSpeed < desiredSpeed) {
+                currentSpeed = desiredSpeed;
+            }
+        }
     }
-
-//    protected abstract void accelerate(int secondsDelta);
-//    protected abstract void decelerate(int secondsDelta);
 
     public double getCurrentSpeed() {
         return currentSpeed;
     }
 
-    public void setDesiredSpeed(double mph) {
-        desiredSpeed = mph;
+    public void setDesiredSpeed(double desiredSpeed) {
+        this.desiredSpeed = desiredSpeed;
     }
-
-    public void setCurrentSpeed(double currentSpeed) {
-        this.currentSpeed = currentSpeed;
-    }
-
-//    public void updateSpeed(int seconds) {
-//        if (currentSpeed > desiredSpeed) decelerate(seconds);
-//        else if (currentSpeed < desiredSpeed) accelerate(seconds);
-//    }
 }
