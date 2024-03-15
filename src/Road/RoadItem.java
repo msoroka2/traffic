@@ -4,7 +4,20 @@ public class RoadItem {
     RoadItem nextItem;
     RoadItem previousItem;
     double mileMarker;
-    Road currentRoad;
+
+    String name;
+    double length;
+    RoadItem head;
+
+    void addRoadItem(RoadItem roadItem) {
+        head = roadItem;
+    }
+    double getLength() {
+        return this.length;
+    }
+    String getRoadName() {
+        return this.name;
+    }
 
     RoadItem getNext() {
         return this.nextItem;
@@ -25,11 +38,4 @@ public class RoadItem {
         return this.mileMarker;
     }
 
-    Road getCurrentRoad() {
-        return this.currentRoad;
-    }
-
-    void setCurrentRoad(Road road) {
-        this.currentRoad = road;
-    }
 }

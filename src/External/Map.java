@@ -1,7 +1,22 @@
 package External;
 import Road.Road;
-import java.util.List;
+import SUI.SUI;
+import java.util.ArrayList;
 
 public class Map {
-    List<Road> roads;
+    private ArrayList<Road> roads;
+
+    public Map() {
+        roads = new ArrayList<>();
+    }
+
+    public void addRoad(Road road) {
+        roads.add(road);
+    }
+
+    public void print(SUI.IPrintDriver pd, Object o) {
+        for (Road road : roads) {
+            road.print(pd, o);
+        }
+    }
 }

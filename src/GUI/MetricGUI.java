@@ -1,19 +1,20 @@
 package GUI;
-
 import Dynamic.Vehicle;
+import Constants.Constants;
+import Road.Heading;
+import Road.Road;
 
 public class MetricGUI extends GUI {
 
-    private static final double MPS_TO_KPH = 3.6;
+    public Road createRoad(String name, double locx, double locy, double len, Heading hdg) {
+        return new Road(name, locx / Constants.MetersToKm, locy / Constants.MetersToKm, len / Constants.MetersToKm, hdg);
+    }
 
-    @Override
     public double getSpeed(Vehicle v) {
-        return v.getCurrentSpeed() * MPS_TO_KPH;
+        return v.getCurrentSpeed() * Constants.MpsToKph;
     }
 
-    @Override
-    public void setSpeedLimit(Vehicle v, double s) {
-        v.setDesiredSpeed(s / MPS_TO_KPH);
+    public void setSpeedLimit(Vehicle v, double speed) {
+        v.setDesiredSpeed(speed / Constants.MpsToKph);
     }
-
 }
