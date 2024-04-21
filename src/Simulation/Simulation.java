@@ -1,11 +1,27 @@
 package Simulation;
-import Dynamic.Dynamic;
+//import Dynamic.Dynamic;
+import Road.RoadItem;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class Simulation {
-    List<Dynamic> roadItems;
+    private List<RoadItem> dynamicRoadItems;
 
-    void update(int second) {}
+    public Simulation() {
+        dynamicRoadItems = new ArrayList<>();
+    }
 
-    void addDynamicRoadItem(Dynamic dynamicRoadItem) {}
+    public void addDynamicRoadItem(RoadItem roadItem) {
+        dynamicRoadItems.add(roadItem);
+    }
+
+    public List<RoadItem> getDynamicRoadItems() {
+        return dynamicRoadItems;
+    }
+    public void update() {
+        for (RoadItem roadItem : dynamicRoadItems) {
+            roadItem.update(1);
+        }
+    }
 }

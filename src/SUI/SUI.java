@@ -6,6 +6,21 @@ import Constants.Constants;
 
 public class SUI {
     public static final int CharMapSize = 40;
+
+    public static void ConsoleClear() {
+        try {
+            final String os = System.getProperty("os.name");
+            if (os.contains("Windows")) {
+                Runtime.getRuntime().exec("cls");
+            } else {
+                Runtime.getRuntime().exec("clear");
+            }
+        } catch (final Exception e) {
+            System.out.println("Failed to clear console: " + e.getMessage());
+        }
+    }
+
+
     public static class CharMatrix {
         public char[][] map = new char[Constants.CharMapSize][];
 
