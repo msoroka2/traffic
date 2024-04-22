@@ -9,6 +9,9 @@ public class TrafficLight extends RoadItem {
     private char marker;
     private int state;
 
+    int seconds;
+
+    int timeOn = 0;
     public TrafficLight(int redDuration, int yellowDuration, int greenDuration, char marker, Road road) {
         super(road);
         this.road = road;
@@ -18,7 +21,6 @@ public class TrafficLight extends RoadItem {
         this.marker = marker;
         this.state = 0;
     }
-
     public double getMileMarker() {
         return mileMarker;
     }
@@ -32,26 +34,19 @@ public class TrafficLight extends RoadItem {
 
     @Override
     public void update(int seconds) {
+        timeOn += seconds;
 
-        redDuration -= seconds;
-        yellowDuration -= seconds;
-        greenDuration -= seconds;
-
-        if (state == 0) {
-            if (redDuration <= 0) {
-                state = 2;
-            }
-        } else if (state == 1) {
-            if (yellowDuration <= 0) {
-                state = 0;
-            }
-        } else {
-            if (greenDuration <= 0) {
-                state = 1;
-            }
+        if (state == 0 && timeOn >= redDuration) {
+            state = 2;
+            timeOn = 0;
+        } else if (state == 1 && timeOn >= yellowDuration) {
+            state = 0;
+            timeOn = 0;
+        } else if (state == 2 && timeOn >= greenDuration) {
+            state = 1;
+            timeOn = 0;
         }
     }
-
 
     @Override
     public Road printRoadItem(SUI.IPrintDriver cp, SUI.CharMatrix cm) {
@@ -60,17 +55,17 @@ public class TrafficLight extends RoadItem {
         int row = laneWidth / 2;
         int col = (int) Math.round(position);
 
-        char marker = getMarker();
-
         if (state == 0) {
-            cm.map[row][col] = marker; // red light
+            cm.map[row][col] = 'X';
         } else if (state == 1) {
-            cm.map[row][col] = '-'; // yellow light
+            cm.map[row][col] = '-';
         } else {
-            cm.map[row][col] = marker; // green light
+            cm.map[row][col] = 'O';
         }
+
         return null;
     }
+
     public int getState() {
         return state;
     }

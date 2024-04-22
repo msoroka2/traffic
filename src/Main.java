@@ -1,4 +1,6 @@
 import Dynamic.Vehicle;
+
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 import GUI.MetricGUI;
@@ -12,6 +14,9 @@ import Simulation.ISimInput;
 import Road.TrafficLight;
 import Simulation.Simulation;
 
+import java.util.Random;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Main {
     public static void main(String[] args) {
@@ -40,28 +45,12 @@ public class Main {
         simulation.addDynamicRoadItem(trafficLight1);
         simulation.addDynamicRoadItem(trafficLight2);
 
-        Timer timer1 = new Timer();
-        timer1.scheduleAtFixedRate(new TimerTask() {
-            public void run() {
-                trafficLight1.update(1);
-                simulation.update();
-            }
-        }, 0, 1000);
-
-        Timer timer2 = new Timer();
-        timer2.scheduleAtFixedRate(new TimerTask() {
-            public void run() {
-                trafficLight2.update(1);
-                simulation.update();
-            }
-        }, 0, 1000);
-
         Timer displayTimer = new Timer();
         displayTimer.scheduleAtFixedRate(new TimerTask() {
             public void run() {
+                simulation.update();
 
                 SUI.ConsoleClear();
-
 
                 map.printRoad(uptown, cp, cm);
                 for (int i = 0; i < Constants.CharMapSize; i++) {
@@ -71,7 +60,7 @@ public class Main {
             }
         }, 0, 1000);
     }
-    }
+}
 
 
 
