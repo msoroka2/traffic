@@ -14,9 +14,13 @@ public class Map {
     public void addRoad(Road road) {
         roads.add(road);
     }
+    public void print(SUI.IPrintDriver cp, SUI.CharMatrix cm) {
+        for (Road road : roads) {
+            printRoad(road, cp, cm);
+        }
+    }
 
-    public void printRoad(Road road, SUI.IPrintDriver cp, SUI.CharMatrix cm) {
-
+    private void printRoad(Road road, SUI.IPrintDriver cp, SUI.CharMatrix cm) {
         cp.printRoad(road, cm);
 
         for (RoadItem item : road.getRoadItems()) {

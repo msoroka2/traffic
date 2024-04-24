@@ -51,8 +51,7 @@ public class Main {
                 simulation.update();
 
                 SUI.ConsoleClear();
-
-                map.printRoad(uptown, cp, cm);
+                map.print(cp, cm);
                 for (int i = 0; i < Constants.CharMapSize; i++) {
                     String s = new String(cm.map[i]);
                     System.out.println(s);
