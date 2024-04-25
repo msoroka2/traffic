@@ -1,30 +1,14 @@
-import Dynamic.Vehicle;
-
-import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 import GUI.MetricGUI;
 import Road.Heading;
 import Road.Road;
-import Dynamic.Vehicle;
-
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
-import GUI.MetricGUI;
-import Road.Heading;
-import Road.Road;
-import Road.RoadItem;
 import SUI.SUI;
 import Constants.Constants;
 import External.Map;
 import Simulation.ISimInput;
 import Road.TrafficLight;
 import Simulation.Simulation;
-
-import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class Main {
     public static void main(String[] args) {
