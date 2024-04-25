@@ -19,7 +19,7 @@ public class TrafficLight extends RoadItem {
         this.yellowDuration = yellowDuration;
         this.greenDuration = greenDuration;
         this.marker = marker;
-        this.state = 0;
+        this.state = 1;
     }
     public double getMileMarker() {
         return mileMarker;
@@ -74,4 +74,4 @@ public class TrafficLight extends RoadItem {
         this.state = state;
     }
 
-    }
+}

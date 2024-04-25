@@ -1,5 +1,6 @@
 package Road;
 
+
 import java.util.ArrayList;
 
 public class Road {
@@ -20,15 +21,25 @@ public class Road {
         this.roadItems = new ArrayList<>();
     }
 
-    public double getLength() { return length; }
+    public double getLength() {
+        return length;
+    }
 
-    public double getXLocation() { return xlocation; }
+    public double getXLocation() {
+        return xlocation;
+    }
 
-    public double getYLocation() { return ylocation; }
+    public double getYLocation() {
+        return ylocation;
+    }
 
-    public Heading getHeading() { return heading; }
+    public Heading getHeading() {
+        return heading;
+    }
 
-    public String getRoadName() { return name; }
+    public String getRoadName() {
+        return name;
+    }
 
     public void addRoadItem(RoadItem roadItem) {
         roadItems.add(roadItem);

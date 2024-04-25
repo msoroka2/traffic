@@ -16,15 +16,9 @@ public class Map {
     }
     public void print(SUI.IPrintDriver cp, SUI.CharMatrix cm) {
         for (Road road : roads) {
-            printRoad(road, cp, cm);
+            cp.printRoad(road, cm);
         }
     }
 
-    private void printRoad(Road road, SUI.IPrintDriver cp, SUI.CharMatrix cm) {
-        cp.printRoad(road, cm);
 
-        for (RoadItem item : road.getRoadItems()) {
-            item.printRoadItem(cp, cm);
-        }
-    }
 }

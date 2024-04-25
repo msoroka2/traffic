@@ -1,25 +1,19 @@
 package SUI;
+
 import Dynamic.Car;
 import Road.Road;
+import Road.RoadItem;
 import Simulation.Conversions;
 import Constants.Constants;
+import Road.TrafficLight;
 
 public class SUI {
     public static final int CharMapSize = 40;
 
     public static void ConsoleClear() {
-        try {
-            final String os = System.getProperty("os.name");
-            if (os.contains("Windows")) {
-                Runtime.getRuntime().exec("cls");
-            } else {
-                Runtime.getRuntime().exec("clear");
-            }
-        } catch (final Exception e) {
-            System.out.println("Failed to clear console: " + e.getMessage());
-        }
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
-
 
     public static class CharMatrix {
         public char[][] map = new char[Constants.CharMapSize][];
@@ -35,10 +29,10 @@ public class SUI {
 
     public interface IPrintDriver {
         void printRoad(Road road, Object o);
-        void printCar(Car car, Object o);
     }
 
     public static class ConsolePrint implements IPrintDriver {
+        @Override
         public void printRoad(Road road, Object o) {
             CharMatrix cm = (CharMatrix) o;
             int x, y;
@@ -82,10 +76,35 @@ public class SUI {
                 default:
                     break;
             }
+            for (RoadItem item : road.getRoadItems()) {
+                item.printRoadItem(this, cm);
+            }
         }
 
-        public void printCar(Car car, Object o) {
+        public void onPrintRequested(Road road, CharMatrix cm) {
+            printRoad(road, cm);
 
+            for (RoadItem item : road.getRoadItems()) {
+                if (item instanceof TrafficLight) {
+                    printTrafficLight((TrafficLight) item, cm);
+                }
+
+            }
+        }
+
+        private void printTrafficLight(TrafficLight trafficLight, CharMatrix cm) {
+            double position = trafficLight.getMileMarker() * trafficLight.getRoad().getLength();
+            int laneWidth = trafficLight.getRoad().getLaneWidth();
+            int row = laneWidth / 2;
+            int col = (int) Math.round(position);
+
+            if (trafficLight.getState() == 0) {
+                cm.map[row][col] = 'X';
+            } else if (trafficLight.getState() == 1) {
+                cm.map[row][col] = '-';
+            } else {
+                cm.map[row][col] = 'O';
+            }
         }
     }
 }
