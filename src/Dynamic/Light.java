@@ -1,8 +1,8 @@
-package Dynamic;
-
-import Model.Color;
-import SUI.SUI;
-
+//package Dynamic;
+//
+//import Model.Color;
+//import SUI.SUI;
+//
 //public class Light extends Dynamic{
 //    int redTime;
 //    int yellowTime;
@@ -22,7 +22,6 @@ import SUI.SUI;
 //    public void update(int seconds) {
 //
 //    }
-//
 //    @Override
 //    public void printRoadItem(SUI.IPrintDriver cp, SUI.CharMatrix cm) {
 //

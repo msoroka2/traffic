@@ -2,15 +2,12 @@ package External;
 import Road.Road;
 import SUI.SUI;
 import java.util.ArrayList;
-import Road.RoadItem;
 
 public class Map {
     private ArrayList<Road> roads;
-
     public Map() {
         roads = new ArrayList<>();
     }
-
     public void addRoad(Road road) {
         roads.add(road);
     }
@@ -19,6 +16,5 @@ public class Map {
             cp.printRoad(road, cm);
         }
     }
-
 
 }

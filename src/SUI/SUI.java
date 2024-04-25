@@ -1,6 +1,4 @@
 package SUI;
-
-import Dynamic.Car;
 import Road.Road;
 import Road.RoadItem;
 import Simulation.Conversions;
@@ -76,23 +74,12 @@ public class SUI {
                 default:
                     break;
             }
-            for (RoadItem item : road.getRoadItems()) {
-                item.printRoadItem(this, cm);
+            for (RoadItem trafficLight : road.getRoadItems()) {
+                trafficLight.printRoadItem(this, cm);
             }
         }
 
-        public void onPrintRequested(Road road, CharMatrix cm) {
-            printRoad(road, cm);
-
-            for (RoadItem item : road.getRoadItems()) {
-                if (item instanceof TrafficLight) {
-                    printTrafficLight((TrafficLight) item, cm);
-                }
-
-            }
-        }
-
-        private void printTrafficLight(TrafficLight trafficLight, CharMatrix cm) {
+        public static void printTrafficLight(TrafficLight trafficLight, CharMatrix cm) {
             double position = trafficLight.getMileMarker() * trafficLight.getRoad().getLength();
             int laneWidth = trafficLight.getRoad().getLaneWidth();
             int row = laneWidth / 2;

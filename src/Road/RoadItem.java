@@ -1,16 +1,13 @@
 package Road;
-
 import SUI.SUI;
 
 public abstract class RoadItem {
     RoadItem nextItem;
     RoadItem previousItem;
     double mileMarker;
-
     String name;
     double length;
     RoadItem head;
-
     Road road;
 
     public RoadItem(Road road) {
@@ -50,6 +47,5 @@ public abstract class RoadItem {
     public Road getRoad() {
         return road;
     }
-
     public abstract Road printRoadItem(SUI.IPrintDriver cp, SUI.CharMatrix cm);
 }

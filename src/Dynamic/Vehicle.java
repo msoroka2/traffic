@@ -1,14 +1,9 @@
 package Dynamic;
-
-import Dynamic.Dynamic;
 import Model.Color;
 
 public class Vehicle {
     private double currentSpeed;
     private double desiredSpeed;
-    private double speedLimit;
-    private Color color;
-
     public void updateSpeed(double acceleration) {
         if (currentSpeed < desiredSpeed) {
             currentSpeed += acceleration;
@@ -22,11 +17,9 @@ public class Vehicle {
             }
         }
     }
-
     public double getCurrentSpeed() {
         return currentSpeed;
     }
-
     public void setDesiredSpeed(double desiredSpeed) {
         this.desiredSpeed = desiredSpeed;
     }

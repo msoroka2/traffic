@@ -1,5 +1,4 @@
 package Simulation;
-//import Dynamic.Dynamic;
 import Road.RoadItem;
 
 import java.util.ArrayList;

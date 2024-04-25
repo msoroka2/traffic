@@ -43,9 +43,6 @@ public class Main {
         uptown.addRoadItem(trafficLight1);
         uptown.addRoadItem(trafficLight2);
 
-        System.out.println("Traffic Light 1 mile marker: " + trafficLight1.getMarker());
-        System.out.println("Traffic Light 2 mile marker: " + trafficLight2.getMarker());
-
         SUI.CharMatrix cm = new SUI.CharMatrix();
 
         // simulation starts
