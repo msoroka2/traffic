@@ -1,4 +1,4 @@
 package Static;
 
-public class Yield extends Static{
+public class  Yield extends Static{
 }
